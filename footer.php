@@ -1,6 +1,6 @@
 <hr>
 
-      <footer class="row">
+      <footer class="row" id="contact">
         <p>&copy; Company 2012</p>
       </footer>
 

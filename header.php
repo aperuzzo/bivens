@@ -30,11 +30,32 @@
         </div>
 
         <div class="navbar-collapse collapse" id="top-navbar">
-          <ul class="nav nav-justified">
-            <?php wp_list_pages('include=11,13,15,17,19,101,21&title_li' ); ?>
-          </ul>
+            <?php /* Primary navigation */
+            wp_nav_menu( array(
+              'menu' => 'top_menu',
+              'depth' => 2,
+              'container' => false,
+              'menu_class' => 'nav nav-justified',
+              //Process nav menu using our custom nav walker
+              'walker' => new wp_bootstrap_navwalker())
+            );
+            ?>
         </div><!--/.nav-collapse -->
       </div><!--/container -->
     </nav><!-- end navigation -->
 
     <div class="container">
+      <header>
+        <div class="row">
+          <div class="col-xs-12 col-xs-push-1 col-md-push-2 col-lg-push-3">
+            <h2>The art of</h2>
+          </div>
+        </div>
+        <div class="row">
+          <h1 id="bivens-title">John Bivens</h1>
+            <img src="<?php echo bloginfo('url'); ?>/wp-content/themes/bivens/images/john.svg" class="img-responsive logo" alt="John Bivens logo for artist John Bivens">  
+        </div>
+
+      </header>
+    </div>
+    <div class="container-fluid">

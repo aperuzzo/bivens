@@ -1,11 +1,20 @@
 <?php 
+//register menu for bootstrap
+add_action( 'after_setup_theme', 'wpt_setup' );
+    if ( ! function_exists( 'wpt_setup' ) ):
+        function wpt_setup() {  
+            register_nav_menu( 'primary', __( 'Primary navigation', 'wptuts' ) );
+        } endif;
+
+//add Edward McIntyre's bootstap nav walker
+require_once('wp_bootstrap_navwalker.php');
 
 function wpbootstrap_scripts_with_jquery()
 {
 	// Register the javascript for bootstrap
-	wp_register_script( 'custom-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
+	wp_register_script( 'bootstrap-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
 	// For either a plugin or a theme, you can then enqueue the script:
-	wp_enqueue_script( 'custom-script' );
+	wp_enqueue_script( 'bootstrap-script' );
 }
 add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
 
