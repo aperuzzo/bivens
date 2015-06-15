@@ -9,6 +9,13 @@ add_action( 'after_setup_theme', 'wpt_setup' );
 //add Edward McIntyre's bootstap nav walker
 require_once('wp_bootstrap_navwalker.php');
 
+//adding home page to menu
+function home_page_menu_args( $args ) {
+$args['show_home'] = true;
+return $args;
+}
+add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
+
 function wpbootstrap_scripts_with_jquery()
 {
 	// Register the javascript for bootstrap
@@ -24,14 +31,7 @@ function img_responsive($content){
 }
 add_filter('the_content','img_responsive');
 
-// adding a sidebar
-if ( function_exists('register_sidebar-1') )
-	register_sidebar(array(
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>',
-	));
+
 
 // this is to add .svg to the upload options for images
 add_filter('upload_mimes', 'custom_upload_mimes');
@@ -131,8 +131,7 @@ function custom_pagination($numpages = '', $pagerange = '', $paged='') {
 
   if ($paginate_links) {
     echo "<nav class='custom-pagination'>";
-      echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
-      echo $paginate_links;
+    echo $paginate_links;
     echo "</nav>";
   }
 
@@ -153,6 +152,29 @@ function my_post_queries( $query ) {
 }
 add_action( 'pre_get_posts', 'my_post_queries' );
 
+// adding a sidebar
+$bivens_right_sidebar = array(
+  'name' => 'Right side',
+  'id' => 'right-side',
+  'description' => 'Widgets placed here will display on right column of page',
+  'before_widget' => '',
+  'after_widget' => '',
+  'before_title' => '<h3>',
+  'after_title' => '</h3>',
+);
+register_sidebar( $bivens_right_sidebar );
 
+//defualt settings for image attachments
+add_action( 'after_setup_theme', 'default_attachment_display_settings' );
+/**
+ * Set the Attachment Display Settings "Link To" default to "none"
+ *
+ * This function is attached to the 'after_setup_theme' action hook.
+ */
+function default_attachment_display_settings() {
+  update_option( 'image_default_align', 'none' );
+  update_option( 'image_default_link_type', 'none' );
+  update_option( 'image_default_size', 'full' );
+}
 
 ?>

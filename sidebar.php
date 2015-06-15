@@ -1,2 +1,1 @@
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
-<?php endif; ?>
+<?php dynamic_sidebar( 'Right side' ) ; ?>

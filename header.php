@@ -47,13 +47,9 @@
     <div class="container">
       <header>
         <div class="row">
-          <div class="col-xs-12 col-xs-push-1 col-md-push-2 col-lg-push-3">
-            <h2>The art of</h2>
-          </div>
-        </div>
-        <div class="row">
           <h1 id="bivens-title">John Bivens</h1>
-            <img src="<?php echo bloginfo('url'); ?>/wp-content/themes/bivens/images/john.svg" class="img-responsive logo" alt="John Bivens logo for artist John Bivens">  
+          <h2 id="art-of">The art of</h2>
+          <img src="<?php echo bloginfo('url'); ?>/wp-content/themes/bivens/images/john.svg" class="img-responsive logo" alt="John Bivens logo for artist John Bivens">  
         </div>
 
       </header>
