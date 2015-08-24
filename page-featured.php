@@ -29,17 +29,18 @@ Template Name: Featured Comic
         <?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
          
             <div class="col-md-8 col-lg-7 featured">
-              <!-- <h3><?php the_title(); ?></h3> -->
-              <?php the_content(); ?>
+                <div class="featured-cell">
+                <?php the_content(); ?>
 
-              <?php endwhile; ?>
-              <!-- end of the loop -->
-              <!-- pagination here -->
-              <?php
-                if (function_exists(custom_pagination)) {
-                  custom_pagination($custom_query->max_num_pages,"",$paged);
-                }
-              ?>
+                <?php endwhile; ?>
+                <!-- end of the loop -->
+                <!-- pagination here -->
+                <?php
+                  if (function_exists(custom_pagination)) {
+                    custom_pagination($custom_query->max_num_pages,"",$paged);
+                  }
+                ?>
+              </div>
             </div>
            
         <?php wp_reset_postdata(); ?>
@@ -64,8 +65,13 @@ Template Name: Featured Comic
       </div>
     </div>
   </div><!-- end row -->
+  <?php wp_reset_postdata(); ?>
   <div class="row cell-comments">    
-    <?php comments_template(); ?>
+     <?php
+    $wp_query->is_single = true;
+    comments_template();
+    $wp_query->is_single = false;
+    ?>
   </div>
 
 

@@ -31,7 +31,7 @@ Template Name: Store
         
         $name = get_the_category();
         
-        echo '<div class="col-md-6 col-md-pull-4">';
+        echo '<div class="col-md-6 col-md-pull-4 thumb-store">';
         echo '<div class="thumb">';
         echo '<a href="';
         

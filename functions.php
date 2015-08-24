@@ -22,8 +22,15 @@ function wpbootstrap_scripts_with_jquery()
 	wp_register_script( 'bootstrap-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
 	// For either a plugin or a theme, you can then enqueue the script:
 	wp_enqueue_script( 'bootstrap-script' );
+  wp_register_script('custom-script', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true );
+  wp_enqueue_script( 'custom-script' );
 }
+
 add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
+
+//adding custom JS script
+
+
 
 //add responsive image class for bootstrap
 function img_responsive($content){

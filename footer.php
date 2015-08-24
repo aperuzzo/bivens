@@ -1,9 +1,59 @@
 
-	
       <footer id="contact" class="row">
         <article id="form" class="col-sm-6">
         	<h3>contact john</h3>
-			<form class="form-horizontal" method="post" id="contact_form" action="contact-form-handler.php">
+
+<?
+	$errors = '';
+	$myemail = 'bivens.john@gmail.com';//<-----Put Your email address here.
+	if(empty($_POST['name'])  || 
+	   empty($_POST['email']) || 
+	   empty($_POST['message']))
+	{
+	    $errors .= "\n Error: all fields are required";
+	}
+
+	$name = $_POST['name']; 
+	$email_address = $_POST['email']; 
+	$message = $_POST['message']; 
+
+	if (!preg_match(
+	"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", 
+	$email_address))
+	{
+	    $errors .= "\n Error: Invalid email address";
+	}
+
+	if( empty($errors)) 
+	{
+		// if the url field is empty 
+		if(isset($_POST['url']) && $_POST['url'] == ''){
+			//then send email 
+	
+			$to = $myemail; 
+			$email_subject = "Contact form submission: $name";
+			$email_body = "You have received a new message. ".
+			" Here are the details:\n Name: $name \n Email: $email_address \n Message \n $message"; 
+			
+			$headers = "From: $myemail\n"; 
+			$headers .= "Reply-To: $email_address";
+			
+			mail($to,$email_subject,$email_body,$headers);
+
+			echo "<META http-equiv='refresh' content='0;URL=http://localhost:8888/second/thank-you/'>";
+  //echo "<h2>";
+  //echo "Thank you for your message!";
+  //echo "</h2>";
+  //echo "<p>";
+  //echo "John will respond to you soon.";
+  //echo "</p>";
+
+} 
+	} 
+
+?>
+
+			<form class="form-horizontal" method="post" id="contact_form" action="">
 				<div class="form-group">
 				     <input type="text" class="form-control" name="name" id="name" placeholder="Your Name"> 
 				</div>
@@ -20,21 +70,18 @@
 					<input type="submit" name="submit" id="submit" value="Submit" class="btn">
 				</div>					 	
 			</form> 
+
+
 		</article>
 		<article class="col-sm-6">
 			<h3>follow john</h3>
-			<p class="social"><a href="#">f</a> <a href="#">t</a> <a href="#">l</a> <a href="#">L</a></p>
-			<!-- <div id="charlie-box">
-				<img src="<?php echo bloginfo('url'); ?>/wp-content/themes/bivens/images/lil-charlie.jpg"
-					alt="John Bivens drawing of Lil' Charlie" class="img-responsive" id="charlie">
-				<img src="<?php echo bloginfo('url'); ?>/wp-content/themes/bivens/images/charlie-friends.jpg" 
-					alt="John Bivens drawing of Lil' charlie and friends" class="img-responsive" id="friends">
-			</div>
-				-->
+			<p class="social"><a href="https://www.facebook.com/ArtOfJohnThomasBivens?ref=nf">b</a> 
+				<a href="http://johnbivens.tumblr.com/">z</a> <a href="https://instagram.com/bivensjohn/">x</a> 
+				<a href="https://twitter.com/John_Bivens">a</a></p>
+			
 			<h4>all artwork &copy; John Bivens 2015</h4>
-			<h5>site design by:</h5>
-			<a href="http://anthonyperuzzo.com"><img src="<?php echo bloginfo('url'); ?>/wp-content/themes/bivens/images/tony-logo.svg"
-						alt="Anthony Peruzzo logo" class="img-responsive ap-logo"></a>
+			<h5>site design by: <a href="http://anthonyperuzzo.com" target="_blank">Anthony Peruzzo</a></h5>
+			
 		</article>
       </footer>
   	</div> <!-- /container -->
@@ -42,6 +89,5 @@
     
 
      <?php wp_footer(); ?>
-
   </body>
 </html>

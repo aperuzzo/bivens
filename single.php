@@ -6,9 +6,16 @@
     <h1><?php the_title(); ?></h1>
   	  <div class="row cell-main">
         <div class="content-center">
+          
+        <?php 
+          if (in_category( 9 )) {
+            echo print_wp_shopping_cart(); 
+          } 
+        ?><!-- displays shopping cart only for "STORE" category -->
+        
 	       <?php the_content(); ?>
          <?php
-          if ( in_category( 2 ) || in_category( 3 )) {
+          if ( ! in_category( 4 ) || ! in_category( 5 )) {
             $name = get_the_category();
             echo '<a href="../../../../category/';
             echo $name[0]->slug;

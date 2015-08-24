@@ -21,16 +21,18 @@ font-family: 'Londrina Shadow', cursive;
 @import url('bootstrap/css/bootstrap.min.css'); 
 
 @font-face {
-    font-family: 'social';
-    src: url('fonts/social/social_icons_pro_set_1_-_rounded-webfont.eot');
-    src: url('fonts/social/social_icons_pro_set_1_-_rounded-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/social/social_icons_pro_set_1_-_rounded-webfont.woff2') format('woff2'),
-         url('fonts/social/social_icons_pro_set_1_-_rounded-webfont.woff') format('woff'),
-         url('fonts/social/social_icons_pro_set_1_-_rounded-webfont.ttf') format('truetype'),
-         url('fonts/social/social_icons_pro_set_1_-_rounded-webfont.svg#social_icons_pro_set_1_-_roRg') format('svg');
+    font-family: 'socicon';
+    src: url('fonts/social/socicon.eot');
+    src: url('fonts/social/socicon.eot?#iefix') format('embedded-opentype'),
+         url('fonts/social/socicon.woff') format('woff'),
+         url('fonts/social/socicon.woff2') format('woff2'),
+         url('fonts/social/socicon.ttf') format('truetype'),
+         url('fonts/social/socicon.svg#sociconregular') format('svg');
     font-weight: normal;
     font-style: normal;
+    text-transform: initial;
 
+    /* icon display chart: http://www.socicon.com/chart.php */
 }
 
 /* ============================================================
@@ -218,9 +220,16 @@ aside {
   margin-right: auto;
   margin-left: auto;
   background-color: #321340;
-  width: 295px;
-  height: 250px;
+  width: 280px;
+  height: 260px;
   margin-bottom: 20px;
+}
+
+.thumb img {
+  
+
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .thumb h4 {
@@ -243,6 +252,13 @@ input#submit {
   text-transform: uppercase;
   border: none;
   padding: 5px;
+  border: 1px solid #b15b9e;
+}
+
+input#submit:hover, input#submit:focus {
+  color: #b15b9e;
+  background: #eee2a9;
+  border: 1px solid #b15b9e;
 }
 
 /* ============================================================
@@ -252,6 +268,11 @@ input#submit {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+/* ============================================================
+  PAGE-STORE.PHP CONTENT STYLE
+============================================================ */
+
 /* ============================================================
   FOOTER STYLE
 ============================================================ */
@@ -305,16 +326,22 @@ footer#contact > article > h3 {
 }
 
 .social a {
-  font-family: 'social';
-  font-size: 90px;
-  color: #6b2e6b;
+  font-family: 'socicon';
+  font-size: 70px;
+  color: #eee2a9;
+  padding: 5px;
+  background-color: #6b2e6b;
+  -webkit-border-radius: 12px; 
+  -moz-border-radius: 12px; 
+  border-radius: 12px; 
   letter-spacing: 10px;
-  line-height: 1em;
+  line-height: 1.2em;
+  margin-right: 4px;
 }
 
 .social a:hover, a:focus {
   text-decoration: none;
-  color: #c3acbd;
+  background-color: #c3acbd;
 }
 
 .social {
@@ -353,3 +380,38 @@ footer#contact > article > h3 {
   background-color: #f7d62f;
   color: #7c4271;
 }
+
+/* ============================================================
+  media queries
+============================================================ */
+
+@media (max-width: 320px) {
+  .thumb-store, .thumb {
+    margin-left: -15px;
+  }
+
+
+}
+
+@media (min-width: 1400px) {
+  .featured-cell {
+    margin-left: 15%;
+  }
+
+  .cell-aside {
+    margin-left: -5%;
+    margin-right: 5%;
+  }
+}
+
+@media (min-width: 2000px) {
+  .featured-cell {
+    margin-left: 35%;
+  }
+
+  .cell-aside {
+    margin-left: -17%;
+    margin-right: 25%;
+  }
+}
+
