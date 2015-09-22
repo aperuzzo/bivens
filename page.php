@@ -15,7 +15,7 @@
         </div>
   	 </div>
   	<aside class="col-md-4">
-      <div class="cell-aside">
+      <div class="cell-header">
         <?php echo print_wp_shopping_cart() ?>
         <?php 
 

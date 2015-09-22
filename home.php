@@ -53,7 +53,7 @@ Template Name: Home page
 			<?php wp_reset_postdata(); ?>
 		</div>
 		<aside class="col-md-3">
-			<div class="cell-aside">
+			<div class="cell-header">
 				<?php echo print_wp_shopping_cart() ?>
 				<?php 
 
@@ -68,7 +68,7 @@ Template Name: Home page
 
 			    <?php endwhile; else: ?>
 			    <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
-			<?php endif; ?>
+				<?php endif; ?>
 
 			    <?php wp_reset_postdata(); ?>
 			</div>

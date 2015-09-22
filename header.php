@@ -3,11 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta property="og:title" content="John Bivens: Comicbook Illustrator">
-  <meta property="og:image" content="link_to_image">
-  <meta property="og:description" content="John Bivens is an award-winning Comicbook Illustrator. His work 
-  spans the genres of crime, horror, science fiction, fantasy, romance, and education. Check out his work here!">
-  <title><?php wp_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
+  <title>The art of John Bivens</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- styles -->
@@ -19,11 +15,15 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
-  <?php wp_head(); ?>
+<?php wp_head(); ?>
 
 </head>
 
 <body>
+<!--[if lt IE 8]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please 
+  <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
   <nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container">
@@ -54,7 +54,7 @@
   <div class="container">
     <header>
       <div class="row">
-        <h1 id="bivens-title">John Bivens</h1>
+        <h1 id="bivens-title">The art of John Bivens</h1>
         <h2 id="art-of">The art of</h2>
         <img src="<?php echo bloginfo('url'); ?>/wp-content/themes/bivens/images/john.svg" class="img-responsive logo" alt="John Bivens logo for artist John Bivens">  
       </div>

@@ -3,55 +3,48 @@
         <article id="form" class="col-sm-6">
         	<h3>contact john</h3>
 
-<?
-	$errors = '';
-	$myemail = 'bivens.john@gmail.com';//<-----Put Your email address here.
-	if(empty($_POST['name'])  || 
-	   empty($_POST['email']) || 
-	   empty($_POST['message']))
-	{
-	    $errors .= "\n Error: all fields are required";
-	}
+			<?
+				$errors = '';
+				$myemail = 'bivens.john@gmail.com';//<-----Put Your email address here.
+				if(empty($_POST['name'])  || 
+				   empty($_POST['email']) || 
+				   empty($_POST['message']))
+				{
+				    $errors .= "\n Error: all fields are required";
+				}
 
-	$name = $_POST['name']; 
-	$email_address = $_POST['email']; 
-	$message = $_POST['message']; 
+				$name = $_POST['name']; 
+				$email_address = $_POST['email']; 
+				$message = $_POST['message']; 
 
-	if (!preg_match(
-	"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", 
-	$email_address))
-	{
-	    $errors .= "\n Error: Invalid email address";
-	}
+				if (!preg_match(
+				"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", 
+				$email_address))
+				{
+				    $errors .= "\n Error: Invalid email address";
+				}
 
-	if( empty($errors)) 
-	{
-		// if the url field is empty 
-		if(isset($_POST['url']) && $_POST['url'] == ''){
-			//then send email 
-	
-			$to = $myemail; 
-			$email_subject = "Contact form submission: $name";
-			$email_body = "You have received a new message. ".
-			" Here are the details:\n Name: $name \n Email: $email_address \n Message \n $message"; 
-			
-			$headers = "From: $myemail\n"; 
-			$headers .= "Reply-To: $email_address";
-			
-			mail($to,$email_subject,$email_body,$headers);
+				if( empty($errors)) 
+				{
+					// if the url field is empty 
+					if(isset($_POST['url']) && $_POST['url'] == ''){
+						//then send email 
+				
+						$to = $myemail; 
+						$email_subject = "Contact form submission: $name";
+						$email_body = "You have received a new message. ".
+						" Here are the details:\n Name: $name \n Email: $email_address \n Message \n $message"; 
+						
+						$headers = "From: $myemail\n"; 
+						$headers .= "Reply-To: $email_address";
+						
+						mail($to,$email_subject,$email_body,$headers);
 
-			echo "<META http-equiv='refresh' content='0;URL=http://localhost:8888/second/thank-you/'>";
-  //echo "<h2>";
-  //echo "Thank you for your message!";
-  //echo "</h2>";
-  //echo "<p>";
-  //echo "John will respond to you soon.";
-  //echo "</p>";
+						echo "<META http-equiv='refresh' content='0;URL=http://localhost:8888/second/thank-you/'>";
 
-} 
-	} 
-
-?>
+				} 
+					} 
+			?>
 
 			<form class="form-horizontal" method="post" id="contact_form" action="">
 				<div class="form-group">
@@ -88,6 +81,6 @@
 
     
 
-     <?php wp_footer(); ?>
+    <?php wp_footer(); ?>
   </body>
 </html>

@@ -14,6 +14,8 @@ function home_page_menu_args( $args ) {
 $args['show_home'] = true;
 return $args;
 }
+
+//adding custom JS scripts
 add_filter( 'wp_page_menu_args', 'home_page_menu_args' );
 
 function wpbootstrap_scripts_with_jquery()
@@ -22,14 +24,15 @@ function wpbootstrap_scripts_with_jquery()
 	wp_register_script( 'bootstrap-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array( 'jquery' ) );
 	// For either a plugin or a theme, you can then enqueue the script:
 	wp_enqueue_script( 'bootstrap-script' );
+  //my custom scripts
   wp_register_script('custom-script', get_template_directory_uri() . '/js/custom.js', array('jquery'), '1.0', true );
   wp_enqueue_script( 'custom-script' );
+  //modernizer for older browsers
+  wp_register_script('modernizer-script', get_template_directory_uri() . '/js/modernizr-2.8.3.min.js', array('jquery'), '1.0', true );
+  wp_enqueue_script( 'modernizer-script' );
 }
 
 add_action( 'wp_enqueue_scripts', 'wpbootstrap_scripts_with_jquery' );
-
-//adding custom JS script
-
 
 
 //add responsive image class for bootstrap
@@ -37,8 +40,6 @@ function img_responsive($content){
     return str_replace('<img class="','<img class="img-responsive ',$content);
 }
 add_filter('the_content','img_responsive');
-
-
 
 // this is to add .svg to the upload options for images
 add_filter('upload_mimes', 'custom_upload_mimes');
@@ -68,14 +69,14 @@ function create_posttype() {
       ),
       'supports' => array(
       	'title',
-		'editor',
-		'author',
-		'thumbnail',
-		'excerpt',
-		'trackbacks',
-		'custom-fields',
-		'comments',
-		'revisions',
+    		'editor',
+    		'author',
+    		'thumbnail',
+    		'excerpt',
+    		'trackbacks',
+    		'custom-fields',
+    		'comments',
+    		'revisions',
       ),
       'taxonomies' => array('category'),
       'public' => true,
@@ -159,17 +160,7 @@ function my_post_queries( $query ) {
 }
 add_action( 'pre_get_posts', 'my_post_queries' );
 
-// adding a sidebar
-$bivens_right_sidebar = array(
-  'name' => 'Right side',
-  'id' => 'right-side',
-  'description' => 'Widgets placed here will display on right column of page',
-  'before_widget' => '',
-  'after_widget' => '',
-  'before_title' => '<h3>',
-  'after_title' => '</h3>',
-);
-register_sidebar( $bivens_right_sidebar );
+
 
 //defualt settings for image attachments
 add_action( 'after_setup_theme', 'default_attachment_display_settings' );

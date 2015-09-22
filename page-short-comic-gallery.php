@@ -17,7 +17,6 @@ Template Name: Short Comic Gallery
 
     $args = array( 
       'post_type' => 'title', 
-      'posts_per_page' => 10,
       'cat' => -7 
       );
     $loop = new WP_Query( $args );

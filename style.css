@@ -105,17 +105,6 @@ p.date-time {
   padding: 20px 20px 30px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
-  max-width: 800px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.cell-header {
-  background-color: hsla(333, 47%, 95%, 0.9);
-  padding: 1px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  
 }
 
 .cell-comments {
@@ -123,9 +112,15 @@ p.date-time {
   padding: 20px 20px 30px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+
 }
 
-.cell-aside {
+.cell-comicpage {
+  display: table;
+  margin: 0 auto;
+}
+
+.cell-header {
   background-color: hsla(50, 47%, 92%, 0.8);
   padding: 20px 20px 30px 20px;
   margin-top: 20px;
@@ -178,6 +173,9 @@ nav li a:hover, li a:focus {
   color: #f7d62f !important;
 }
 
+#top-navbar li.menu-item {
+  white-space: nowrap;
+}
 
 
 /* ============================================================
@@ -207,6 +205,12 @@ header {
 #home-page {
   margin-top: 170px;
   margin-bottom: 40px;
+}
+
+#home-page article {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 aside {
@@ -260,18 +264,6 @@ input#submit:hover, input#submit:focus {
   background: #eee2a9;
   border: 1px solid #b15b9e;
 }
-
-/* ============================================================
-  PAGE-FEATURED.PHP CONTENT STYLE
-============================================================ */
-.featured {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-/* ============================================================
-  PAGE-STORE.PHP CONTENT STYLE
-============================================================ */
 
 /* ============================================================
   FOOTER STYLE
@@ -349,9 +341,7 @@ footer#contact > article > h3 {
   margin-top: -10px;
 }
 
-.ap-logo {
-  margin: auto;
-}
+
 /* ============================================================
   CUSTOM PAGINATION
 ============================================================ */
@@ -387,31 +377,15 @@ footer#contact > article > h3 {
 
 @media (max-width: 320px) {
   .thumb-store, .thumb {
-    margin-left: -15px;
+    margin-left: -8px;
   }
 
 
 }
 
-@media (min-width: 1400px) {
-  .featured-cell {
-    margin-left: 15%;
-  }
 
-  .cell-aside {
-    margin-left: -5%;
-    margin-right: 5%;
-  }
-}
 
-@media (min-width: 2000px) {
-  .featured-cell {
-    margin-left: 35%;
-  }
 
-  .cell-aside {
-    margin-left: -17%;
-    margin-right: 25%;
-  }
-}
+
+
 
