@@ -34,11 +34,6 @@ Template Name: Home page
 				<p><?php the_content(); ?></p>
 			</div>
 
-				<!-- optional button to link to full post (if needed)
-				<a class="btn" href="<?php the_permalink() ?>" title="Permanent Link to <?php the_title(); ?>">
-									More...
-								</a>
-				-->
 			<?php endwhile; else: ?>
 			    <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 			<?php endif; ?>

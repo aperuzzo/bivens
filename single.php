@@ -13,21 +13,12 @@
             echo print_wp_shopping_cart(); 
           } 
         ?>
-       
-        
 	      <?php the_content(); ?>
-        
-         
-       </div>
-
-         
+       </div>  
       </div><!-- end row -->
-
-      
-  	  
-  	    <?php endwhile; else: ?>
-  	      <p><?php _e('Sorry, this page does not exist.'); ?></p>
-  	    <?php endif; ?>
+	    <?php endwhile; else: ?>
+	      <p><?php _e('Sorry, this page does not exist.'); ?></p>
+	    <?php endif; ?>
       <div class="row">
       <div class="cell-main">
         <?php comments_template(); ?>

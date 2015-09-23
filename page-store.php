@@ -17,7 +17,6 @@ Template Name: Store
       <h4>prints, sketchbooks, original art are all available on this page. 
         click links for more info or to add an item to your cart.</h4>
     </div>
-    
 
     <?php
 
@@ -33,7 +32,6 @@ Template Name: Store
       echo '<div class="col-md-4 col-lg-3 thumb-store">';
       echo '<div class="thumb">';
       echo '<a href="';
-      
       echo the_permalink();
       echo '">';
       echo '<p class="center-img">';
@@ -52,12 +50,9 @@ Template Name: Store
     endwhile;
     ?>
     
-    
-
   </div><!-- end row -->  
   <?php wp_reset_postdata(); ?>
 
 </section>
-
 
 <?php get_footer(); ?>
